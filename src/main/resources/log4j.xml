@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4j:configuration >
+
+    <appender class="org.apache.log4j.ConsoleAppender" name="CONSOLE">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%p - %C{1}.%M(%L) | %m%n%n"/>
+        </layout>
+    </appender>
+
+	<logger additivity="false" name="org.springframework">
+		<level value="debug"/>
+		<appender-ref ref="CONSOLE"/>
+	</logger>
+
+	<category name="org.springframework.beans.factory">
+		<priority value="error" />
+		<appender-ref ref="CONSOLE"/>
+	</category>
+		
+    		
+    <root>
+        <level value="debug"/>
+        <appender-ref ref="CONSOLE"/> 
+    </root>
+
+
+</log4j:configuration>
+
+

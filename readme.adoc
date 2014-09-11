@@ -1,0 +1,13 @@
+= Photo-Book-Trip
+
+= build
+mvn clean eclipse:clean eclipse:eclipse package -DskipTests
+mvn spring-boot:run
+
+= use
+From any REST client eg Postman chrome plugin
+
+POST http://photobooktrip.ateambe.eu.cloudbees.net/photo
+{ "name" : "Frodo", "content" : "Baggins" }
+
+GET http://photobooktrip.ateambe.eu.cloudbees.net/photo/1
