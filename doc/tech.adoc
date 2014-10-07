@@ -1,0 +1,7 @@
+= frontend
+-- AngularJS
+ 
+
+= backend
+-- spring-boot logging support
+-- Spring HATEOS
