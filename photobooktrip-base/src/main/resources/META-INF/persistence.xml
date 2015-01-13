@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+	<persistence-unit name="sp2PersistenceUnit"
+		transaction-type="RESOURCE_LOCAL">
+ 
+		<class>org.photobooktrip.notes.domain.Note</class>
+		<class>org.photobooktrip.notes.domain.Notebook</class>
+		<class>org.photobooktrip.notes.domain.Tag</class>
+		<class>org.photobooktrip.notes.domain.NoteTag</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Starter Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="./bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+    <!--  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="./css/app-custom.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" data-role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Notebook</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+<div class="container-fluid">
+
+ <div class="row">
+	  <div class="col-md-12">
+		  <div class="panel-default">  
+		    <div class="panel-heading">
+		     
+		      <div class="container">
+			         <div class="col-sm-4">  
+			            <div id="imaginary_container"> 
+			                <div class="input-group stylish-input-group">
+			                    <input type="text" class="form-control"  placeholder="Search" >
+			                    <span class="input-group-addon">
+			                        <button type="submit">
+			                            <span class="glyphicon glyphicon-search"></span>
+			                        </button>  
+			                    </span>
+			                </div>
+			            </div>
+			          </div>
+			          
+			          <div class="col-sm-4">
+			              <span class="btn btn-success btn-md"><i class="glyphicon glyphicon-plus"></i> New Note</span>
+			          </div>  
+			          <div class="col-sm-4" id="errorMsgDiv">
+					  </div>
+			   </div>	
+		      
+		    </div>
+		  </div>
+	  </div>
+ </div>
+ 
+ <div class="row">
+	<div class="col-md-2">
+	   <div class="panel-group" id="accordion">
+	   
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+		          Favorites <span class="caret"></span>
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseOne" class="panel-collapse collapse in">
+		      <div class="panel-body">
+		        <p>fav1</p>
+		        <p>fav1</p>
+		        <p>fav1</p>
+		      </div>
+		    </div>
+		  </div>
+  
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <span class="pull-right"><a href='#' data-toggle="modal" data-target="#newNotebookDlg"><i class="glyphicon glyphicon-plus"></i></a></span>
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+		          Notebooks <span class="caret"></span>
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse in">
+		      <div class="panel-body" id="notebooks"></div>
+		    </div>
+		  </div>
+  
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <span class="pull-right"><a href='#' data-toggle="modal" data-target="#newTagDlg"><i class="glyphicon glyphicon-plus"></i></a></span>
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+		          Tags <span class="caret"></span>
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseThree" class="panel-collapse collapse in">
+		      <div class="panel-body" id="tags"></div>
+		    </div>
+		  </div>
+	</div>
+  </div> <!-- /.col-md-2 --> 
+	   	  
+  <div class="col-md-2">
+    	<div class="panel panel-default" >
+			<div id="collapseFive">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading">List group item heading</h4>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  </a>
+                </div>
+                <div class="list-group">
+                  <a href="#" class="list-group-item active">
+                    <h4 class="list-group-item-heading">List group item heading</h4>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  </a>
+                </div>
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading">List group item heading</h4>
+                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  </a>
+                </div>
+              </div>	           
+	    </div>
+  	</div>
+  	  
+   	 <div class="col-md-8" role="main">
+   	 	<div class="panel panel-default">
+	      		<h1 class="editable">Editable header</h1>
+				<div class="editable" style="width:100%; height:550px">
+				This is an editable div element element.
+				</div>
+	    </div>
+  	  </div>
+    	  
+ </div><!-- /.row --> 
+</div>
+
+<footer class="container">
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+ 	 <div class="container">
+	  © 2012-2014
+    </div>
+	</nav>
+</footer>
+
+
+<div class="modal fade" id="newNotebookDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create a New Notebook</h4>
+      </div>
+      
+     <form role="form">
+       <div class="modal-body">
+		  <div class="form-group form-group-lg">
+		    <label for="newNotebook">Notebook name</label>
+	    	<input type="text" class="form-control" id="newNotebook">
+		  </div>
+       </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Save changes</button>
+       </div>
+	</form>
+      
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="newTagDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create a New Tag</h4>
+      </div>
+      
+     <form role="form">
+       <div class="modal-body">
+		  <div class="form-group form-group-lg">
+		    <label for="newTag">Tag</label>
+	    	<input type="text" class="form-control" id="newTag">
+		  </div>
+       </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Save changes</button>
+       </div>
+	</form>
+      
+    </div>
+  </div>
+</div>
+
+<script id="errorMsgTpl">
+<div class="fade in alert alert-danger alert-dismissible" role="alert">
+ <button type="button" class="close" data-dismiss="alert">
+ <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+ <strong>Warning!</strong> Something went wrong!
+</div>
+</script>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./jquery-1.11.1.js"></script>
+<script src="./bootstrap3/js/bootstrap.min.js"></script>  
+<!-- 
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+-->
+<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script src="./js/app-custom.js"></script>
+    
+</body>
+</html>
