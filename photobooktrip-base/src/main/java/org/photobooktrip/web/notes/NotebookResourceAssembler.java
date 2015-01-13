@@ -12,7 +12,7 @@ public class NotebookResourceAssembler extends
 
 	public NotebookResource toResource(Notebook person) {
 		NotebookResource resource = null;
-		createResourceWithId(person.getId(),person);											 
+		createResourceWithId(person.getId(), person);											 
 		// do further mapping
 		return resource;
 	}

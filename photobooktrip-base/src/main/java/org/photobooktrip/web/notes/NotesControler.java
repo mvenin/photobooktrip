@@ -22,7 +22,7 @@ public class NotesControler {
 	private NotesService notesService;
 
 	@RequestMapping(value= "/notebooks", method=RequestMethod.POST)
-	public HttpEntity<NotebookResource> createNotebook(@RequestParam(value = "name") String name) throws NoSuchMethodException, SecurityException {
+	public HttpEntity<NotebookResource> createNotebook(@RequestParam(value = "name") String name) {
 		NotebookResource notebook = new NotebookResource(name);
 		Long id= notesService.createNotebook(notebook);
 		

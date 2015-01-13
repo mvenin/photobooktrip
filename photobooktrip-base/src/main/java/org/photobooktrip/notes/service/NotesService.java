@@ -25,9 +25,9 @@ public class NotesService {
 
 	public NotebookResource findById(Long noteId) {
 		Notebook e = em.find( Notebook.class, noteId);
-		NotebookResource vo = new NotebookResource(e.getId(),e.getName());
+		NotebookResource vo = new NotebookResource(e.getName(), e.getId());
 		for(Note n : e.getNotes()){
-			vo.getNotes().add(new NoteVo(n.getId(), n.getName()));
+			vo.addNoteLink(n.getId());
 		}
 		return vo;
 	}

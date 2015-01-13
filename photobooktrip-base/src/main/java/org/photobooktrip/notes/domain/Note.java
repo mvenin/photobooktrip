@@ -2,6 +2,8 @@ package org.photobooktrip.notes.domain;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,15 +22,15 @@ public class Note {
 	@Column(name = "note_id")
 	private Long id;
 
-	@Column(name = "name")
 	private String name;
+	private String content;
 
-	@ManyToOne(cascade = { javax.persistence.CascadeType.ALL })
+	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "notebook_id")
 	private Notebook notebook;
 
-	@ManyToMany(cascade = { javax.persistence.CascadeType.ALL })
-	private Set<Tag> tags = new HashSet();
+	@ManyToMany(cascade = { CascadeType.ALL })
+	private Set<Tag> tags = new HashSet<Tag>();
 
 	public Note() {
 	}
@@ -45,6 +47,12 @@ public class Note {
 		this.tags.add(tag);
 	}
 
+	public void addTag(Tag tag){
+		if( tag != null){
+			this.tags.add(tag);
+		}
+	}
+	
 	public Long getId() {
 		return this.id;
 	}
@@ -72,4 +80,14 @@ public class Note {
 	public Set<Tag> getTags() {
 		return this.tags;
 	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	
 }
