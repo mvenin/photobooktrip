@@ -5,8 +5,9 @@ import javax.persistence.PersistenceContext;
 
 import org.photobooktrip.notes.domain.Note;
 import org.photobooktrip.notes.domain.Notebook;
-import org.photobooktrip.web.notes.NoteVo;
+import org.photobooktrip.web.notes.NoteResource;
 import org.photobooktrip.web.notes.NotebookResource;
+import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,19 +18,32 @@ public class NotesService {
 	@PersistenceContext
 	private EntityManager em;
 
-	public Long createNotebook(NotebookResource notebook) {
-		Notebook entity = new Notebook(notebook.getName());
-		em.persist(entity);
-		return entity.getId();
+	public long createNotebook(NotebookResource notebook) {
+		Notebook e = new Notebook(notebook.getName());
+		Notebook kid = new Notebook("Kid");
+		e.addNotebook(kid );
+		kid.addNotebook(new Notebook("Minor Kid") );
+		
+		em.persist(e);
+		return e.getId();
 	}
 
-	public NotebookResource findById(Long noteId) {
+	public NotebookResource findById(long noteId) {
 		Notebook e = em.find( Notebook.class, noteId);
-		NotebookResource vo = new NotebookResource(e.getName(), e.getId());
-		for(Note n : e.getNotes()){
-			vo.addNoteLink(n.getId());
+		NotebookResource nbk = new NotebookResource(e.getName(), e.getId());
+		
+		if( e.getParent() != null){
+			nbk.add(new Link("/notebooks/"+e.getParent().getId(), "parent"));
 		}
-		return vo;
+		
+		for(Notebook c : e.getChildrenNotebooks() ){
+			nbk.addNotebook( new NotebookResource(c.getName(), c.getId()) );
+		}
+		
+		for(Note n : e.getNotes()){
+			nbk.addNote(new NoteResource(n.getName(), n.getId()));
+		}
+		return nbk;
 	}
 
 }

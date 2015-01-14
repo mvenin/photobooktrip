@@ -12,9 +12,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class NotebookResource extends ResourceSupport {
 	private String name;
-	private Link parent;
-	private List<Link> children = new ArrayList<Link>();
-	private List<Link> notes = new ArrayList<Link>();
+//	private Link parent;
+	private List<NotebookResource> children = new ArrayList<NotebookResource>();
+	private List<NoteResource> notes = new ArrayList<NoteResource>();
 	
 	@JsonCreator
 	public NotebookResource(@JsonProperty("name") String name) {
@@ -29,26 +29,31 @@ public class NotebookResource extends ResourceSupport {
 		}
 	}
 	
-	public void addNoteLink(long noteId){
-		this.notes.add(new Link("/notes/"+noteId, "self"));
+//	public void setParent(Link parent) {
+//		this.parent = parent;
+//	}
+	
+	public void addNotebook(NotebookResource notebook){
+		this.children.add(notebook);
 	}
 	
-	public void addNotebook(Link notebookId){
-		this.children.add(new Link("/notebooks/"+notebookId, "child"));
+	public void addNote(NoteResource note){
+//		this.notes.add(new Link("/notes/"+noteId, "self"));
+		this.notes.add(note);
 	}
 	
 	public String getName() {
 		return name;
 	}
-	public Link getParent() {
-		return parent;
-	}
+//	public Link getParent() {
+//		return parent;
+//	}
 	
-	public List<Link> getNotes() {
+	public List<NoteResource> getNotes() {
 		return notes;
 	}
 	
-	public List<Link> getChildren() {
+	public List<NotebookResource> getChildren() {
 		return children;
 	}
 }

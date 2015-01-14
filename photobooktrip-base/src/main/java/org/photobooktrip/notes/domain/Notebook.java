@@ -41,6 +41,10 @@ public class Notebook {
 	public Notebook(String name) {
 		this.name = name;
 	}
+	
+	public Notebook getParent() {
+		return parent;
+	}
 
 	public void addNotebook(Notebook notebook) {
 		if (notebook != null) {
@@ -68,6 +72,10 @@ public class Notebook {
 		return this.name;
 	}
 
+	public List<Notebook> getChildrenNotebooks() {
+		return childrenNotebooks;
+	}
+	
 	public List<Note> getNotes() {
 		return this.notes;
 	}

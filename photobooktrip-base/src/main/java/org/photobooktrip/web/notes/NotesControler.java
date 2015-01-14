@@ -16,29 +16,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/notebooks")
 public class NotesControler {
 
 	@Autowired
 	private NotesService notesService;
 
-	@RequestMapping(value= "/notebooks", method=RequestMethod.POST)
+	@RequestMapping(method=RequestMethod.GET)
 	public HttpEntity<NotebookResource> createNotebook(@RequestParam(value = "name") String name) {
 		NotebookResource notebook = new NotebookResource(name);
 		Long id= notesService.createNotebook(notebook);
 		
-		Link link = linkTo(NotesControler.class).slash(id).withSelfRel();
-		notebook.add(link);
-		
+		notebook.add(linkTo(methodOn(NotesControler.class).viewNotebook(id)).withSelfRel());
 		return new ResponseEntity<NotebookResource>(notebook, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value= "/notebooks/{id}", method=RequestMethod.GET)
-	public HttpEntity<NotebookResource> viewNotebook(@PathVariable Long noteId) {
-		NotebookResource notebook = notesService.findById(noteId);
+	@RequestMapping(value= "/{notebookId}", method=RequestMethod.GET)
+	public HttpEntity<NotebookResource> viewNotebook(@PathVariable Long notebookId) {
+		NotebookResource notebook = notesService.findById(notebookId);
 		return new ResponseEntity<NotebookResource>(notebook, HttpStatus.OK);
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value= "/notes")
+	@RequestMapping(method=RequestMethod.POST, value= "/{notebookId}/notes")
 	public HttpEntity<NoteVo> createNote(@RequestParam(value = "name") String name) {
 		NoteVo note = new NoteVo(name);
 		note.add(linkTo(methodOn(NotesControler.class).createNote(name))

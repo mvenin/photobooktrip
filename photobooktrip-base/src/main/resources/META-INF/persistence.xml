@@ -8,7 +8,7 @@
 		<class>org.photobooktrip.notes.domain.Note</class>
 		<class>org.photobooktrip.notes.domain.Notebook</class>
 		<class>org.photobooktrip.notes.domain.Tag</class>
-		<class>org.photobooktrip.notes.domain.NoteTag</class>
+		<!-- <class>org.photobooktrip.notes.domain.NoteTag</class> -->
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		
 	</persistence-unit>

@@ -38,7 +38,7 @@ $("#notebooks").on("click","a", function(e){
 		
 	   $.ajax({
 	      url: 'notebooks',
-	      type: 'POST',
+	      type: 'GET',
 	      dataType: 'json',
 	      data: {
 	         name: notebook
