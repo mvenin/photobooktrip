@@ -58,7 +58,9 @@ public class Notebook {
 	
 	public void addNote(Note note) {
 		if (note != null) {
-			note.getNotebook().getNotes().remove(note);
+			if( note.getNotebook() != null){
+				note.getNotebook().getNotes().remove(note);
+			}
 			note.setNotebook(this);
 			this.notes.add(note);
 		}

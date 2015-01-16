@@ -49,7 +49,7 @@
 			         <div class="col-sm-4">  
 			            <div id="imaginary_container"> 
 			                <div class="input-group stylish-input-group">
-			                    <input type="text" class="form-control"  placeholder="Search" >
+			                    <input type="text" id='searchTopInput' class="form-control"  placeholder="Search" >
 			                    <span class="input-group-addon">
 			                        <button type="submit">
 			                            <span class="glyphicon glyphicon-search"></span>
@@ -60,7 +60,11 @@
 			          </div>
 			          
 			          <div class="col-sm-4">
-			              <span class="btn btn-success btn-md"><i class="glyphicon glyphicon-plus"></i> New Note</span>
+			             <a href='#' id='newNoteBtn'>
+			              <span class="btn btn-success btn-md">
+			                <i class="glyphicon glyphicon-plus"></i> New Note
+			              </span>
+			              </a>
 			          </div>  
 			          <div class="col-sm-4" id="errorMsgDiv">
 					  </div>
@@ -124,7 +128,7 @@
 	   	  
   <div class="col-md-2">
     	<div class="panel panel-default" >
-			<div id="collapseFive">
+			<div id="notesContainer">
                 <div class="list-group">
                   <a href="#" class="list-group-item">
                     <h4 class="list-group-item-heading">List group item heading</h4>
@@ -148,12 +152,28 @@
   	</div>
   	  
    	 <div class="col-md-8" role="main">
-   	 	<div class="panel panel-default">
+   	 
+   	 	  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <button type="button" class="btn btn-primary btn-sm active">Save</button>
+		    </div>
+		    <div class="panel-body">
+		        <h1 class="editable">Editable header</h1>
+				<div class="editable" style="width:100%; height:550px">
+				This is an editable div element element.
+				</div>		        
+		     </div>
+		  </div>
+  
+   	 	
+   	 	
+   	 	 <!-- <div class="panel panel-default">
 	      		<h1 class="editable">Editable header</h1>
 				<div class="editable" style="width:100%; height:550px">
 				This is an editable div element element.
 				</div>
-	    </div>
+	    </div> -->
+	    
   	  </div>
     	  
  </div><!-- /.row --> 
@@ -225,6 +245,16 @@
  <strong>Warning!</strong> Something went wrong!
 </div>
 </script>
+
+<script id="noteTileTpl">
+<div class="list-group">
+<a href="<%= href %>" class="list-group-item">
+  <h4 class="list-group-item-heading"> <%= title %> </h4>
+  <p class="list-group-item-text"> <%= content %> </p>
+</a>
+</div>
+</script>
+
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="./jquery-1.11.1.js"></script>

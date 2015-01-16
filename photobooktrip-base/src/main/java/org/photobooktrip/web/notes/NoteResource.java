@@ -1,6 +1,5 @@
 package org.photobooktrip.web.notes;
 
-import org.springframework.hateoas.Link;
 import org.springframework.hateoas.ResourceSupport;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -11,11 +10,8 @@ public class NoteResource extends ResourceSupport {
 	private String content;
 	
 	@JsonCreator
-	public NoteResource(@JsonProperty("name") String name, Long id) {
+	public NoteResource(@JsonProperty("name") String name ) {
 		this.name = name;
-		if( id != null){
-			this.add(new Link("/notes/"+id, "self"));
-		}
 	}
 
 	public String getName() {

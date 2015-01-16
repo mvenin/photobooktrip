@@ -23,7 +23,7 @@ public class Note {
 	private Long id;
 
 	private String name;
-	private String content;
+	private String content = "";
 
 	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "notebook_id")
