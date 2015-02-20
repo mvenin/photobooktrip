@@ -1,6 +1,10 @@
 package org.photobooktrip.web.notes;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
+
+
 
 import org.photobooktrip.notes.domain.Note;
 import org.photobooktrip.notes.domain.Notebook;
@@ -60,6 +64,11 @@ public class NotesServiceBF {
 		NoteResource note = new NoteResource(entity.getName() );
 		note.setContent(entity.getContent());
 		return note;
+	}
+
+	public List<Notebook> findAllNotebooks() {
+		List<Notebook> allNotebooks = notesService.findAllNotebooks();
+		return allNotebooks.subList(0, 20);
 	}
 
 	

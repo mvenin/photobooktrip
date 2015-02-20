@@ -1,5 +1,7 @@
 package org.photobooktrip.notes.service;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -26,6 +28,10 @@ public class NotesService {
 
 	public Note findNoteById(Long noteId) {
 		return  em.find( Note.class, noteId);
+	}
+
+	public List<Notebook> findAllNotebooks() {
+		return em.createQuery(" select o from Notebook o", Notebook.class).getResultList();
 	}
 
 }

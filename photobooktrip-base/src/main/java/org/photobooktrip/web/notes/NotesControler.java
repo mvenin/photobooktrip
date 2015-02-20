@@ -3,6 +3,9 @@ package org.photobooktrip.web.notes;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
+import java.util.List;
+
+import org.photobooktrip.notes.domain.Notebook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -19,8 +22,14 @@ public class NotesControler {
 
 	@Autowired
 	private NotesServiceBF notesService;
-
+	
 	@RequestMapping(method=RequestMethod.GET)
+	public HttpEntity<NotebookList> allNotebooks() {
+		List<Notebook> allNotebooks = notesService.findAllNotebooks();
+		return new ResponseEntity<NotebookList>(new NotebookList(allNotebooks) , HttpStatus.OK);
+	}
+
+	@RequestMapping(method=RequestMethod.POST)
 	public HttpEntity<NotebookResource> createNotebook(@RequestParam(value = "name") String name) {
 		NotebookResource notebook = new NotebookResource(name);
 		long id= notesService.createNotebook(notebook);
@@ -52,3 +61,21 @@ public class NotesControler {
 	
 
 }
+
+class NotebookList {
+	List<Notebook> allNotebooks;
+	
+	public NotebookList(List<Notebook> allNotebooks) {
+		this.allNotebooks = allNotebooks;
+	}
+
+	public List<Notebook> getAllNotebooks() {
+		return allNotebooks;
+	}
+	
+	public void setAllNotebooks(List<Notebook> allNotebooks) {
+		this.allNotebooks = allNotebooks;
+	}
+	
+}
+
