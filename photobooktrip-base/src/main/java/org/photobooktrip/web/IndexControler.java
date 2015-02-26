@@ -10,6 +10,11 @@ public class IndexControler {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping("/ang")
+	public String ang() {
+		return "ang";
+	}
 
 	
 }
