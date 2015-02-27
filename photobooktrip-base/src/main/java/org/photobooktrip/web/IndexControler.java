@@ -15,6 +15,10 @@ public class IndexControler {
 	public String ang() {
 		return "ang";
 	}
+	@RequestMapping("/store")
+	public String store() {
+		return "store";
+	}
 
 	
 }
