@@ -8,7 +8,7 @@
 
 	<modules>
 		<module>photobooktrip-base</module>
-		<module>echo</module>
+		<!-- <module>echo</module> -->
 	</modules>
 
 	<properties>
@@ -36,7 +36,6 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-
 
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
